@@ -1,0 +1,27 @@
+{
+  "name": "node-es6-starter",
+  "version": "1.0.0",
+  "description": "node.js es6 boilerplate ",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register test/**/*.js",
+    "build": "babel src -d build",
+    "babel-hot": "babel-node -- src/app.js",
+    "start": "nodemon --exec \"npm run babel-hot\""
+  },
+  "keywords": [
+    "node",
+    "es6",
+    "babel",
+    "boilerplate"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {}
+}
