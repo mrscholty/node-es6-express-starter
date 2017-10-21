@@ -1,5 +1,12 @@
-import * as Calc from './modules/Calc';
+import express from 'express';
+import fruitsRoute from './routes/fruits.route';
 
-let result = Calc.add(40,2);
+let app = express();
 
-console.log(result);
+app.use('/api', fruitsRoute);
+
+app.listen(3000, () => {
+   console.log('API listens ...');
+});
+
+
