@@ -26,7 +26,8 @@
     "chai": "^4.0.2",
     "express": "^4.16.2",
     "mocha": "^3.4.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   },
   "dependencies": {}
 }
