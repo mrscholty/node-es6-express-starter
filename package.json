@@ -4,9 +4,10 @@
   "description": "node.js es6 express boilerplate ",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register test/**/*.js",
-    "build": "babel src -d build",
+    "build": "babel src -d build && npm run assets",
     "babel-hot": "babel-node -- src/app.js",
-    "start": "nodemon --exec \"npm run babel-hot\""
+    "start": "nodemon --exec \"npm run babel-hot\"",
+    "assets": "cp -R src/data build/data"
   },
   "keywords": [
     "node",
