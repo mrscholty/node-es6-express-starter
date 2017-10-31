@@ -1,29 +1,45 @@
 import request from 'supertest';
 
-describe('api', () => {
+describe('API: routes', () => {
 
-    let languages = [
-        {id: '1', name: 'JavaScript'},
-        {id: '2', name: 'Java'},
-        {id: '3', name: 'C#'},
-        {id: '4', name: 'Pascal'},
-        {id: '5', name: 'C'}
-    ];
-
-    it('should get languages', (done) => {
+    it('should GET /api', (done) => {
         request('http://localhost:3000')
             .get('/api')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(200, languages, done);
+            .expect(200, done);
     });
 
-    it('should get single language', (done) => {
+    it('should GET /api/1', (done) => {
         request('http://localhost:3000')
-            .get('/api/2')
+            .get('/api/1')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(200, {id: '2', name: 'Java'}, done);
+            .expect(200, done);
+    });
+
+    it('should POST /api', (done) => {
+        request('http://localhost:3000')
+            .post('/api')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+
+    it('should PUT /api/1', (done) => {
+        request('http://localhost:3000')
+            .put('/api/1')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+
+    it('should DELETE /api/1', (done) => {
+        request('http://localhost:3000')
+            .delete('/api/1')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
     });
 
 });

@@ -1,48 +1,31 @@
 import {Router} from 'express';
+import * as Languages from '../business/Languages';
 
 const router = Router();
 
-let languages = [
-    {id: '1', name: 'JavaScript'},
-    {id: '2', name: 'Java'},
-    {id: '3', name: 'C#'},
-    {id: '4', name: 'Pascal'},
-    {id: '5', name: 'C'}
-];
-
 router.get('/', (req, res) => {
-    res.json(languages);
+    res.json(Languages.get());
 });
 
 router.get('/:id', (req, res) => {
     let id = req.params.id;
-    res.json(languages.find(item => item.id === id) || {});
+    res.json(Languages.getOne(id));
 });
 
 router.post('/', (req, res) => {
     let body = req.body;
-    languages = [...languages, body];
-    res.json(body);
+    res.json(Languages.add(body));
 });
 
 router.put('/:id', (req, res) => {
     let id = req.params.id;
     let body = req.body;
-    languages = languages.map(item => item.id === id ?
-        {...item, name: body.name} : item
-    );
-    res.json(languages.find(item => item.id === id) || {});
+    res.json(Languages.update(id, body));
 });
 
 router.delete('/:id', (req, res) => {
     let id = req.params.id;
-    let itemIndex = languages.findIndex(item => item.id === id);
-    let item = languages[itemIndex] || {};
-    languages = [
-        ...languages.slice(0, itemIndex),
-        ...languages.slice(itemIndex + 1)
-    ];
-    res.json(item);
+    res.json(Languages.remove(id));
 });
 
 export default router;
