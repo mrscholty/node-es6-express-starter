@@ -4,8 +4,7 @@ import languagesRoute from './routes/languages.route';
 
 let app = express();
 
-let port = process.env.PORT || 3000;
-let url = 'localhost';
+let port = process.env.PORT || 8080;
 
 // configure express middleware
 app.use(bodyParser.json());
@@ -23,8 +22,8 @@ app.use(function (req, res, next) {
 app.use('/api', languagesRoute);
 
 // start server
-app.listen(port, url, () => {
-    console.log(`API listens at ${url}:${port}/api`);
+app.listen(port, () => {
+    console.log(`API listens at port ${port}/api`);
 });
 
 
