@@ -4,7 +4,7 @@ import languagesRoute from './routes/languages.route';
 
 let app = express();
 
-let port = process.env.PORT || 8080;
+let port = process.env.PORT || 3000;
 
 // configure express middleware
 app.use(bodyParser.json());
